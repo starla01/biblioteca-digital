@@ -5,11 +5,13 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 //Components
 import Search from '../Search';
+import Menu from '../Menu';
 
-export default function Header(){
+export default function Header({setContent}){
     return <div className={styles.header}>
-        <div className={styles.logo}>
-            <img src="http://www.amiifdigital.org/images/logoFooter.png" width="150" alt="Amiif ~Biblioteca digital" />
+        <Menu setContent={setContent} />
+        <div className={styles.logo}>   
+            <img src="images/amiif-logo.jpg" width="150" alt="AMIIF Digital - La Transformación Digital es ahora" />
         </div>
         <div className={styles.containerSearch}>
             <Search />
@@ -20,5 +22,6 @@ export default function Header(){
                 <Button>Filtrar</Button>
             </ButtonGroup>
         </div>
+
     </div>
 }

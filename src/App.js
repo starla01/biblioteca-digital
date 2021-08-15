@@ -11,14 +11,18 @@ import PdfViewer from './components/PdfViewer';
 
 function App() {
   const [viewPop, setViewPop] = useState(false);
+  const [content, setContent] = useState([]);
+  const [file, setFile] = useState(null);
+
+  console.log({file})
   return (
     <div className="App">
       {
-        viewPop && <PdfViewer setViewPop={setViewPop} />
+        viewPop && <PdfViewer setViewPop={setViewPop} files={file} />
       }
-      <Header />
+      <Header setContent={setContent} />
       <div className="container" >
-        <ListView setViewPop={setViewPop} />
+        <ListView setViewPop={setViewPop} content={content} setFile={setFile} />
       </div>
     </div>
   );

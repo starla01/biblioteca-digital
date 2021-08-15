@@ -3,13 +3,11 @@ import styles from './index.module.sass';
 //Components
 import RowFile from '../RowFile';
 
-const files = [0,0,0,0,0,0,0,0,0,0];
-
-export default function ListView({setViewPop}){
+export default function ListView({setViewPop, content, setFile}){
     return <div className={styles.ListView}>
         {
-            files.map((file, index) => {
-                return <RowFile key={index} setViewPop={setViewPop} />
+            content.map((file, index) => {
+                return <RowFile key={index} setViewPop={setViewPop} files={file} setFile={setFile} />
             })
         }
     </div>
