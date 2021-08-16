@@ -14,7 +14,6 @@ function App() {
   const [content, setContent] = useState([]);
   const [file, setFile] = useState(null);
 
-  console.log({file})
   return (
     <div className="App">
       {

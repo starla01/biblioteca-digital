@@ -1,3 +1,7 @@
+//Librerias
+import { useState } from 'react';
+
+//Estilos
 import styles from './index.module.sass';
 
 import Button from '@material-ui/core/Button';
@@ -8,8 +12,11 @@ import Search from '../Search';
 import Menu from '../Menu';
 
 export default function Header({setContent}){
+    const [viewMenu, setViewMenu] = useState(false);
     return <div className={styles.header}>
-        <Menu setContent={setContent} />
+        {
+            viewMenu && <Menu setContent={setContent} setViewMenu={setViewMenu} />
+        }
         <div className={styles.logo}>   
             <img src="images/amiif-logo.jpg" width="150" alt="AMIIF Digital - La Transformación Digital es ahora" />
         </div>
@@ -19,7 +26,7 @@ export default function Header({setContent}){
         <div className={styles.controls}>
             <ButtonGroup color="primary" aria-label="outlined primary button group">
                 <Button>Buscar</Button>
-                <Button>Filtrar</Button>
+                <Button onClick={() => setViewMenu(true)}>Filtrar</Button>
             </ButtonGroup>
         </div>
 

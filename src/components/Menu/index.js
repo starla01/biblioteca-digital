@@ -60,24 +60,21 @@ const MENU = [
     },
 ]
 
-console.log({
-    AGENDA_SOCIAL,
-    ASUNTOS_PUBLICOS,
-    ASUNTOS_REGULATORIOS,
-    COMUNICACION_Y_DESARROLLO,
-    CONSEJO_DIRECTIVO,
-    COVID_19,
-    EXPANSION_DEL_ACCESO,
-    PROPIEDAD_INSDUTRIAL,
-    UNCATEGORIZED,
-})
-
-export default function Menu({setContent}){
+export default function Menu({ setContent, setViewMenu }) {
+    console.log({setViewMenu})
     return <div className={styles.menu}>
         <h2 className={styles.title}>Filtros</h2>
+        <div className={styles.closer} onClick={() => setViewMenu(false)}>
+            <span className="material-icons">
+                close
+            </span>
+        </div>
         {
             MENU.map((option, key) => {
-                return <div className={styles.option} key={key} onClick={() => setContent(option.content)}>
+                return <div className={styles.option} key={key} onClick={() => {
+                    setViewMenu(false);
+                    setContent(option.content)
+                }}>
                     {option?.label}
                 </div>
             })
